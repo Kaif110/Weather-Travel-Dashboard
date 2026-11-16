@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wayfarer — Weather & Travel Planner</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Header & Search Bar -->
+  <header class="navbar">
+    <div class="logo">Wayfarer<span>.</span></div>
+    <form id="search-form" class="search-box">
+      <input type="text" id="city-input" placeholder="Enter city (e.g., Tokyo, Jaipur, Paris)..." required>
+      <button type="submit">Explore</button>
+    </form>
+  </header>
+
+  <main class="container">
+    <!-- Loading & Error Messages -->
+    <p id="status-msg" class="status-msg hidden">Fetching live travel data...</p>
+
+    <!-- Main Dashboard Content -->
+    <div id="dashboard" class="dashboard-grid">
+      
+      <!-- Left Column: Weather & Forecast -->
+      <section class="left-col">
+        <!-- Current Weather Card -->
+        <div class="card weather-card">
+          <div class="weather-header">
+            <div>
+              <h1 id="city-name">Jaipur</h1>
+              <p id="country-name" class="subtitle">India</p>
+            </div>
+            <div class="temp-box">
+              <span id="temperature">--°C</span>
+              <p id="weather-desc">Clear Sky</p>
+            </div>
+          </div>
+
+          <div class="weather-details">
+            <div class="detail-item">
+              <span>Humidity</span>
+              <strong id="humidity">--%</strong>
+            </div>
+            <div class="detail-item">
+              <span>Wind Speed</span>
+              <strong id="wind-speed">-- km/h</strong>
+            </div>
+            <div class="detail-item">
+              <span>Smart Advice</span>
+              <strong id="packing-tip">Light cotton clothes</strong>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5-Day Forecast Card -->
+        <div class="card">
+          <h3>5-Day Weather Forecast</h3>
+          <div id="forecast-list" class="forecast-grid">
+            <!-- JS will add forecast cards here -->
+          </div>
+        </div>
+
+        <!-- Destination Quick Info (2nd API) -->
+        <div class="card">
+          <h3>Destination Quick Guide</h3>
+          <div class="country-info">
+            <img id="country-flag" src="" alt="Flag">
+            <div class="info-text">
+              <p><strong>Region:</strong> <span id="region">--</span></p>
+              <p><strong>Currency:</strong> <span id="currency">--</span></p>
+              <p><strong>Timezone:</strong> <span id="timezone">--</span></p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Right Column: Interactive Travel Itinerary Planner -->
+      <section class="right-col">
+        <div class="card planner-card">
+          <h3>Trip Itinerary & Packing Notes</h3>
+          <p class="subtitle">Plan your activities for <span id="plan-city-label">Jaipur</span></p>
+
+          <form id="plan-form" class="plan-form">
+            <input type="text" id="plan-input" placeholder="e.g., Visit Amer Fort at 9 AM..." required>
+            <select id="plan-day">
+              <option value="Day 1">Day 1</option>
+              <option value="Day 2">Day 2</option>
+              <option value="Day 3">Day 3</option>
+              <option value="Packing">Packing</option>
+            </select>
+            <button type="submit">Add</button>
+          </form>
+
+          <ul id="plan-list" class="plan-list">
+            <!-- Saved plans will appear here -->
+          </ul>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
